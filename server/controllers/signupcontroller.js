@@ -6,21 +6,14 @@ const signupUser = async (req,res) =>{
           const newUser = new User(user); //validated object
           await newUser.save();
 
-          return res.status(200).json({msg:'signup successful'});
+          return res.status(200).json({msg:'signup successful',name:user.name,phone:user.phone,password:user.password,username:user.username,email:user.email,qual:user.qual});
      } catch(error){
         
         return res.status(500).json({msg:'Error while signup'});
      }
 }
 
-const loginUser = async(req,res) => {
-     let user = await User.findOne({username: req.body.email});
-     if(!user){
-         return res.status(400).json({msg:"Email does not exist"});
-     } else{
-         return res.status(200).json({msg:"login successful"});
-     }
-}
+
 
 
  module.exports = signupUser;
