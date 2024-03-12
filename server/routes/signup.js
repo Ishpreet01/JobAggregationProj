@@ -9,7 +9,7 @@ const router=express.Router();
 
 router.post('/signup',signupUser);
 router.post('/login',loginUser);
-router.get('/scrape',scrapeHandler);
+router.get('/api/ml',scrapeHandler);
 
 
 module.exports = router;
